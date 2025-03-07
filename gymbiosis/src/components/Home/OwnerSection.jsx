@@ -3,29 +3,9 @@ import { motion } from "framer-motion";
 
 const OwnerSection = () => {
   return (
-    <div className="w-full py-10 bg-black text-white flex flex-col items-center justify-start px-6 md:px-10">
-      {/* Gym Name and Tagline */}
-      <motion.h1
-        className=" text-4xl md:text-6xl font-extrabold text-yellow-400"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }} 
-        transition={{ duration: 1 }}
-      >
-        Gymbiosis
-      </motion.h1>
-      <motion.p
-        className="text-lg md:text-2xl text-gray-300 mt-2"
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1.2 }}
-      >
-        "Transform Your Body, Transform Your Life"
-      </motion.p>
-      
+    <div className="w-full py-8 bg-black text-white flex flex-col items-center justify-start px-6 md:px-10">
       {/* Owner's Thoughts Section */}
-      <div className="mt-16 w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start">
+      <div className="mt-10 w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start">
         {/* Owner Image */}
         <motion.img
           src="https://tse4.mm.bing.net/th?id=OIP.J15OVIwJoTGzBtO0Ko3JUgHaGF&pid=Api&P=0&h=180"

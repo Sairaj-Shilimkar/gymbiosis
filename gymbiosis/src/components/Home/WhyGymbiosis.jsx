@@ -23,7 +23,7 @@ const WhyGymbiosis = () => {
         animate={inView ? "visible" : "hidden"}
         variants={fadeInVariants}
       >
-        Why Choose <span className="text-white">Gymbiosis?</span>
+        Why To Choose <span className="text-white">Gymbiosis?</span>
       </motion.h2>
 
       {/* Image Grid */}
