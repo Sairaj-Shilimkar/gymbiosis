@@ -4,15 +4,15 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import OwnerSection from "./OwnerSection";
 import WhyGymbiosis from "./WhyGymbiosis";
 import LocationSection from "./LocationSection";
-import FreeTrialForm from "./FreeTrialForm";
+import FreeTrialForm from "./TrialForm";
 import GymStats from "./GymStats";
 
 const images = [
-  "https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg",
   "https://tse2.mm.bing.net/th?id=OIP.H-A4Wmqn7dJ3IRgG4PeRHgHaE7&pid=Api&P=0&h=180",
-  "https://tse2.mm.bing.net/th?id=OIP.H-A4Wmqn7dJ3IRgG4PeRHgHaE7&pid=Api&P=0&h=180",
-  "https://tse2.mm.bing.net/th?id=OIP.H-A4Wmqn7dJ3IRgG4PeRHgHaE7&pid=Api&P=0&h=180",
-  "https://tse2.mm.bing.net/th?id=OIP.H-A4Wmqn7dJ3IRgG4PeRHgHaE7&pid=Api&P=0&h=180",
+  "/assets/slider2.jpg",
+  "/assets/slider3.jpg",
+  "/assets/slider4.jpg",
+  "/assets/slider5.jpg",
 ];
 
 const Home = () => {
@@ -103,7 +103,7 @@ const Home = () => {
             animate={animate ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2 }}
           >
-            "Transform Your Body, Transform Your Life"
+            We start where your imagination ends...🚀
           </motion.p>
         </div>
 

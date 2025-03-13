@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation(); // Get current route
@@ -18,7 +19,7 @@ const Navbar = () => {
           {/* Logo & Name (Shifted Left in Desktop Mode) */}
           <Link to="/" className="flex items-center gap-3 md:ml-[-40px]">
             <img
-              src="https://tse3.mm.bing.net/th?id=OIP.4-q49gVQArO0sAy7W9l7SAHaHa&pid=Api&P=0&h=180"
+              src="/assets/Logo.jpg"
               alt="Gymbiosis Logo"
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-yellow-400"
             />
@@ -41,8 +42,8 @@ const Navbar = () => {
             {[
               { name: "Home", path: "/" },
               { name: "About", path: "/about" },
-              { name: "Membership", path: "/membership" },
               { name: "Gallery", path: "/gallery" },
+              { name: "Membership", path: "/membership" },
               { name: "Contact", path: "/contact" },
             ].map((item) => (
               <li key={item.name}>
@@ -74,8 +75,8 @@ const Navbar = () => {
                 {[
                   { name: "Home", path: "/" },
                   { name: "About", path: "/about" },
-                  { name: "Membership", path: "/membership" },
                   { name: "Gallery", path: "/gallery" },
+                  { name: "Membership", path: "/membership" },
                   { name: "Contact", path: "/contact" },
                 ].map((item) => (
                   <li key={item.name} className="w-full">

@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <div className="w-full min-h-screen bg-gray-900">
       {/* Background Image with Fade-In Effect */}
-      <div className="w-full h-[55vh] md:h-[75vh] relative overflow-hidden">
+      <div className="w-full h-[75vh] md:h-[75vh] relative overflow-hidden">
         <motion.img
           src="https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180"
           alt="Contact Us"
@@ -72,27 +72,27 @@ const Contact = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-yellow-400 text-2xl" />
-                <p>Pune, Maharashtra, India</p>
+                <p>Sr. No. 34/4, below goodluck resto bar, Adarsh Society, Mohan Nagar, Dhankawadi, Pune, Maharashtra 411043</p>
               </div>
 
               <div className="flex items-center space-x-4">
                 <FaPhone className="text-yellow-400 text-2xl" />
-                <p>+91 XXXXXXXXXX</p>
+                <p>+91 9168081066</p>
               </div>
 
               <div className="flex items-center space-x-4">
                 <FaWhatsapp className="text-green-400 text-2xl" />
-                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" className="hover:text-white">Chat on WhatsApp</a>
+                <a href="https://wa.me/9168081066" target="_blank" className="hover:text-white">Chat on WhatsApp</a>
               </div>
 
               <div className="flex items-center space-x-4">
                 <FaInstagram className="text-pink-500 text-2xl" />
-                <a href="https://instagram.com/yourhandle" target="_blank" className="hover:text-white">@yourhandle</a>
+                <a href="https://www.instagram.com/ayushpimple/" target="_blank" className="hover:text-white">@ayushpimple</a>
               </div>
 
               <div className="flex items-center space-x-4">
                 <FaEnvelope className="text-yellow-400 text-2xl" />
-                <p>your.email@example.com</p>
+                <p>ayushpimple1@gmail.com</p>
               </div>
             </div>
           </div>

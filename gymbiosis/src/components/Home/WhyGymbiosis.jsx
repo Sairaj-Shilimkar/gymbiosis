@@ -7,14 +7,14 @@ const WhyGymbiosis = () => {
 
   // Animation Variants
   const fadeInVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
     <div
       ref={ref}
-      className="w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white flex flex-col items-center justify-center px-6 md:px-12 pt-10"
+      className="w-full min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white flex flex-col items-center justify-center px-6 md:px-12 pt-10 pb-20"
     >
       {/* Section Title */}
       <motion.h2
@@ -26,126 +26,85 @@ const WhyGymbiosis = () => {
         Why To Choose <span className="text-white">Gymbiosis?</span>
       </motion.h2>
 
-      {/* Image Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Feature 1 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="State-of-the-art Equipment"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              State-of-the-art Equipment
-            </p>
-          </div>
-        </motion.div>
+      {/* Image Grid with Alternate Layout */}
+      <div className="flex flex-col gap-10">
+        {/* Row 1 */}
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+          {[
+            { img: "/assets/equipment.jpg", text: "State-of-the-art Equipment" },
+            { img: "/assets/trainer.jpg", text: "Certified Professional Trainers" },
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center text-center"
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeInVariants}
+              transition={{ delay: index * 0.2 }}
+            >
+              <img
+                src={feature.img}
+                alt={feature.text}
+                className="w-72 h-80 object-cover rounded-lg shadow-xl transform transition duration-500 hover:scale-105"
+              />
+              <p className="mt-4 text-lg font-semibold text-yellow-300 px-3">
+                {feature.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Feature 2 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-          transition={{ delay: 0.2 }}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Certified Trainers"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              Certified Professional Trainers
-            </p>
-          </div>
-        </motion.div>
+        {/* Row 2 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
+          {[
+            { img: "/assets/plan.jpg", text: "Personalized Workout & Diet Plans" },
+            { img: "/assets/huygein.jpg", text: "Hygienic & Motivating Environment" },
+            { img: "/assets/avail.jpg", text: "24/7 Accessibility for Members" },
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center text-center"
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeInVariants}
+              transition={{ delay: index * 0.3 }}
+            >
+              <img
+                src={feature.img}
+                alt={feature.text}
+                className="w-64 h-72 object-cover rounded-lg shadow-xl transform transition duration-500 hover:scale-105"
+              />
+              <p className="mt-4 text-lg font-semibold text-yellow-300 px-3">
+                {feature.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Feature 3 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-          transition={{ delay: 0.4 }}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Personalized Plans"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              Personalized Workout & Diet Plans
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Feature 4 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-          transition={{ delay: 0.6 }}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Hygienic Environment"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              Hygienic & Motivating Environment
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Feature 5 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-          transition={{ delay: 0.8 }}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="24/7 Accessibility"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              24/7 Accessibility for Members
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Feature 6 */}
-        <motion.div
-          className="relative group overflow-hidden rounded-lg shadow-xl"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInVariants}
-          transition={{ delay: 1 }}
-        >
-          <img
-            src="https://via.placeholder.com/400"
-            alt="Group Fitness Classes"
-            className="w-full h-64 object-cover rounded-lg transform group-hover:scale-105 transition-all duration-500"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-            <p className="text-lg font-semibold text-yellow-300 text-center px-3">
-              Dynamic Group Fitness Classes
-            </p>
-          </div>
-        </motion.div>
+        {/* Row 3 */}
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+          {[
+            { img: "/assets/group.jpg", text: "Dynamic Group Fitness Classes" },
+          ].map((feature, index) => (
+            <motion.div
+              key={index}
+              className="flex flex-col items-center text-center"
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeInVariants}
+              transition={{ delay: index * 0.4 }}
+            >
+              <img
+                src={feature.img}
+                alt={feature.text}
+                className="w-80 h-84 object-cover rounded-lg shadow-xl transform transition duration-500 hover:scale-105"
+              />
+              <p className="mt-4 text-lg font-semibold text-yellow-300 px-3">
+                {feature.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

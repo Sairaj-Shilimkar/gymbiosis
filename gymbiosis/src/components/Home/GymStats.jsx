@@ -6,10 +6,10 @@ import { FaUsers, FaDumbbell, FaMedal, FaTrophy, FaChartLine } from "react-icons
 
 const stats = [
   { icon: <FaMedal size={40} className="text-yellow-400" />, count: 10, label: "Certified Trainers" },
-  { icon: <FaTrophy size={40} className="text-yellow-400" />, count: 15, label: "Competition Wins" },
+  { icon: <FaTrophy size={40} className="text-yellow-400" />, count: 50, label: "Competition Wins" },
   { icon: <FaDumbbell size={40} className="text-yellow-400" />, count: 50, label: "Top-Class Equipment" },
-  { icon: <FaUsers size={40} className="text-yellow-400" />, count: 500, label: "Active Members" },
-  { icon: <FaChartLine size={40} className="text-yellow-400" />, count: 1000, label: "Successful Transformations" },
+  { icon: <FaUsers size={40} className="text-yellow-400" />, count: 750, label: "Active Members" },
+  { icon: <FaChartLine size={40} className="text-yellow-400" />, count: 2500, label: "Successful Transformations" },
 ];
 
 const GymStats = () => {
