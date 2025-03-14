@@ -12,7 +12,7 @@ const replaceImageReferences = (dir) => {
             let content = fs.readFileSync(fullPath, 'utf8');
             
             // Update image paths to point to 'assets/compressed/'
-            let updatedContent = content.replace(/\b(assets\/)(.*?)(\.jpg|\.jpeg|\.webp)\b/g, 'assets/compressed/$2.webp');
+            let updatedContent = content.replace(/\b(assets\/)(.*?)(\.jpg|\.jpeg)\b/g, 'assets/compressed/$2.webp');
 
             if (content !== updatedContent) {
                 fs.writeFileSync(fullPath, updatedContent, 'utf8');
