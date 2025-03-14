@@ -19,7 +19,7 @@ const AboutSection = () => {
     <div className="w-full min-h-screen bg-gray-900 text-white">
       {/* Background Image */}
       <motion.img
-        src="https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180"
+        src="/assets/compressed/slider2.webp"
         alt="Gym"
         className="w-full h-[75vh] object-cover"
         initial={{ opacity: 0 }}
@@ -49,7 +49,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <img
-              src="/assets/Logo2.jpg"
+              src="/assets/compressed/Logo2.webp"
               alt="Fitness Training"
               className="rounded-3xl shadow-2xl w-full md:w-[550px] object-cover"
             />

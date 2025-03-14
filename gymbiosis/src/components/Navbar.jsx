@@ -19,7 +19,7 @@ const Navbar = () => {
           {/* Logo & Name (Shifted Left in Desktop Mode) */}
           <Link to="/" className="flex items-center gap-3 md:ml-[-40px]">
             <img
-              src="/assets/Logo.jpg"
+              src="/assets/compressed/Logo.webp"
               alt="Gymbiosis Logo"
               className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-yellow-400"
             />

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 const FreeTrialForm = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const formRef = useRef(null);
   const isInView = useInView(formRef, { triggerOnce: true, threshold: 0.3 });
 
@@ -11,10 +12,44 @@ const FreeTrialForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    
+    const dataToSend = {
+      access_key: "6c74e26a-dbdd-4d3f-a8ad-bfa18521b976",
+      name: formData.name,
+      phone: formData.phone,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(dataToSend)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSuccessMessage("Thank you! Your trial request has been received.");
+        setFormData({ name: "", phone: "", message: "" }); // Clear form
+        setTimeout(() => setSuccessMessage(""), 5000); // Hide message after 5 seconds
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setErrorMessage("Network error. Please try again.");
+    }
+  };
+
   return (
     <div
       ref={formRef}
-      className="pt-10 pb-10 w-full  flex items-start justify-center px-6 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"
+      className="pt-10 pb-10 w-full flex items-start justify-center px-6 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900"
     >
       <motion.div
         className="max-w-6xl w-full flex flex-col md:flex-row bg-gray-900 rounded-2xl overflow-hidden shadow-xl border border-gray-700"
@@ -24,7 +59,7 @@ const FreeTrialForm = () => {
       >
         {/* Left Side Image (Only for Desktop) */}
         <div className="hidden md:block w-1/2">
-          <img src="/assets/trial.jpeg" alt="Gym Free Trial" className="w-full h-full object-cover" />
+          <img src="/assets/compressed/trial.webp" alt="Gym Free Trial" className="w-full h-full object-cover" />
         </div>
 
         {/* Right Side Form */}
@@ -36,7 +71,11 @@ const FreeTrialForm = () => {
             Sign up now and experience next-level fitness!
           </p>
 
-          <form className="space-y-4">
+          {/* Success & Error Messages */}
+          {successMessage && <p className="text-green-500 text-center mb-4 font-semibold">{successMessage}</p>}
+          {errorMessage && <p className="text-red-500 text-center mb-4 font-semibold">{errorMessage}</p>}
+
+          <form className="space-y-4" onSubmit={onSubmit}>
             <motion.input
               type="text"
               name="name"

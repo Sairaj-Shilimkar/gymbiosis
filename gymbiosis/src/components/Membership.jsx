@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const memberships = [
@@ -7,34 +6,39 @@ const memberships = [
     title: "Monthly Plan",
     originalCost: "₹3000",
     discountedCost: "₹1750",
-    gpayLink: "upi://pay?pa=your-gpay-id@upi&pn=Gymbiosis&am=1750",
+    amount: "1750",
   },
   {
     title: "3-Month Plan",
     originalCost: "₹5000",
     discountedCost: "₹3500",
-    gpayLink: "upi://pay?pa=your-gpay-id@upi&pn=Gymbiosis&am=3500",
+    amount: "3500",
   },
   {
     title: "6-Month Plan",
-    originalCost: "₹75000",
+    originalCost: "₹7500",
     discountedCost: "₹5000",
-    gpayLink: "upi://pay?pa=your-gpay-id@upi&pn=Gymbiosis&am=5000",
+    amount: "5000",
   },
   {
     title: "Annual Plan",
     originalCost: "₹10000",
     discountedCost: "₹7000",
-    gpayLink: "upi://pay?pa=your-gpay-id@upi&pn=Gymbiosis&am=7000",
+    amount: "7000",
   },
 ];
+
+const handlePayment = (amount) => {
+  const upiLink = `upi://pay?pa=ayushpimple1-1@okhdfcbank&pn=Gymbiosis&am=${amount}`;
+  window.open(upiLink, "_blank");
+};
 
 const Membership = () => {
   return (
     <div className="bg-black text-white">
       {/* Background Image Section */}
       <motion.img
-        src="https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180"
+        src="/assets/compressed/slider2.webp"
         alt="Gym"
         className="w-full h-[75vh] object-cover"
         initial={{ opacity: 0 }}
@@ -50,7 +54,7 @@ const Membership = () => {
         viewport={{ once: true }}
         className="bg-gray-900 text-white py-10 text-center"
       >
-        <h3 className="text-3xl font-bold text-yellow-400 mb-4">
+        <h3 className="text-4xl font-bold text-yellow-400 mb-4">
           What Gymbiosis Provides
         </h3>
         <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -141,13 +145,12 @@ const Membership = () => {
 
                 {/* Payment Button */}
                 <div className="mt-4">
-                  <Link
-                    to={plan.gpayLink}
+                  <button
+                    onClick={() => handlePayment(plan.amount)}
                     className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold hover:bg-yellow-500 transition duration-300 transform hover:scale-105 inline-block"
-                    target="_blank"
                   >
                     Become a Member
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>

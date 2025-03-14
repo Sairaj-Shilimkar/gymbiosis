@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 const OwnerSection = () => {
   return (
-    <div className="w-full py-16 bg-black text-white flex flex-col items-center px-6 md:px-10">
+    <div className="w-full py-16 bg-black text-white flex flex-col items-center px-6 md:px-10 pt-6">
       {/* Owner's Thoughts Section */}
       <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start">
         {/* Owner Image with Animation */}
         <motion.img
-          src="/assets/owner.jpg"
+          src="/assets/compressed/owner.webp"
           alt="Owner"
           className="w-64 h-64 rounded-full border-4 border-yellow-400 shadow-xl object-cover"
           initial={{ opacity: 0, scale: 0.8 }}

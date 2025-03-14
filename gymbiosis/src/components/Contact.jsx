@@ -5,15 +5,16 @@ import { FaMapMarkerAlt, FaPhone, FaWhatsapp, FaInstagram, FaEnvelope } from "re
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
   const [errors, setErrors] = useState({});
-  const [imageLoaded, setImageLoaded] = useState(false); // Track image loading state
+  const [successMessage, setSuccessMessage] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = async (event) => {
+    event.preventDefault();
     let validationErrors = {};
 
     if (!formData.name.trim()) validationErrors.name = "Name is required";
@@ -25,15 +26,36 @@ const Contact = () => {
       return;
     }
 
-    console.log("Form submitted:", formData);
+    const formDataToSend = new FormData();
+    formDataToSend.append("access_key", "6c74e26a-dbdd-4d3f-a8ad-bfa18521b976");
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("message", formData.message);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        setSuccessMessage("Thank you! Your message has been received.");
+        setFormData({ name: "", phone: "", message: "" }); // Clear the form
+        setTimeout(() => setSuccessMessage(""), 5000); // Hide message after 5 seconds
+      } else {
+        setSuccessMessage("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setSuccessMessage("Network error. Please try again.");
+    }
   };
 
   return (
     <div className="w-full min-h-screen bg-gray-900">
-      {/* Background Image with Fade-In Effect */}
       <div className="w-full h-[75vh] md:h-[75vh] relative overflow-hidden">
         <motion.img
-          src="https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180"
+          src="/assets/compressed/slider2.webp"
           alt="Contact Us"
           className="w-full h-full object-cover object-center"
           initial={{ opacity: 0 }}
@@ -43,7 +65,6 @@ const Contact = () => {
         />
       </div>
 
-      {/* Heading Section */}
       <div className="w-full text-center py-8">
         <motion.h1
           className="text-4xl md:text-4xl font-extrabold text-yellow-400"
@@ -55,7 +76,6 @@ const Contact = () => {
         </motion.h1>
       </div>
 
-      {/* Contact Form Section */}
       <div className="w-full flex items-center justify-center px-6 py-8">
         <motion.div
           className="max-w-6xl w-full flex flex-col md:flex-row bg-gray-900 rounded-2xl overflow-hidden shadow-xl border border-gray-700"
@@ -63,7 +83,6 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          {/* Left Side - Contact Info */}
           <div className="w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center text-gray-300">
             <h2 className="text-3xl md:text-4xl font-extrabold text-yellow-400 mb-6 text-center md:text-left">
               Get in Touch
@@ -72,7 +91,7 @@ const Contact = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <FaMapMarkerAlt className="text-yellow-400 text-2xl" />
-                <p>Sr. No. 34/4, below goodluck resto bar, Adarsh Society, Mohan Nagar, Dhankawadi, Pune, Maharashtra 411043</p>
+                <p>Sr. No. 34/4, below Goodluck Resto Bar, Dhankawadi, Pune, Maharashtra 411043</p>
               </div>
 
               <div className="flex items-center space-x-4">
@@ -97,7 +116,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Side - Contact Form */}
           <div className="w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-extrabold text-yellow-400 text-center mb-6">
               Contact Us
@@ -106,7 +124,11 @@ const Contact = () => {
               Have questions? Fill out the form and we’ll get back to you.
             </p>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            {successMessage && (
+              <p className="text-green-500 text-center mb-4 font-semibold">{successMessage}</p>
+            )}
+
+            <form className="space-y-4" onSubmit={onSubmit}>
               <div>
                 <motion.input
                   type="text"
@@ -114,8 +136,7 @@ const Contact = () => {
                   placeholder="Your Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border ${errors.name ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500 transition-all`}
-                  whileFocus={{ scale: 1.02 }}
+                  className={`w-full p-3 rounded-lg bg-gray-800 text-white border ${errors.name ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500`}
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
@@ -127,8 +148,7 @@ const Contact = () => {
                   placeholder="Your Mobile Number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border ${errors.phone ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500 transition-all`}
-                  whileFocus={{ scale: 1.02 }}
+                  className={`w-full p-3 rounded-lg bg-gray-800 text-white border ${errors.phone ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500`}
                 />
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
               </div>
@@ -139,17 +159,14 @@ const Contact = () => {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full p-3 h-24 rounded-lg bg-gray-800 text-white placeholder-gray-400 border ${errors.message ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500 resize-none transition-all`}
-                  whileFocus={{ scale: 1.02 }}
+                  className={`w-full p-3 h-24 rounded-lg bg-gray-800 text-white border ${errors.message ? "border-red-500" : "border-gray-600"} focus:ring-2 focus:ring-yellow-500`}
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
 
-              {/* Submit Button */}
               <motion.button
                 type="submit"
-                className="w-full py-3 bg-yellow-500 text-black font-bold text-lg rounded-lg shadow-lg hover:bg-yellow-400 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
+                className="w-full py-3 bg-yellow-500 text-black font-bold text-lg rounded-lg shadow-lg hover:bg-yellow-400 transition-all"
               >
                 Send Message
               </motion.button>

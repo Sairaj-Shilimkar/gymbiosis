@@ -11,11 +11,11 @@ const sections = [
       "High-intensity workouts designed to torch calories and boost endurance.",
       "Step into the energy-packed Cardio Zone and elevate your heart rate!"
     ],
-    image: "https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180",
+    image: "/assets/compressed/cardio2.webp",
     images: [
-      "https://source.unsplash.com/800x600/?running,gym",
-      "https://source.unsplash.com/800x600/?cardio,exercise",
-      "https://source.unsplash.com/800x600/?gym,workout",
+      "/assets/compressed/cardio1.webp",
+      "/assets/compressed/cardio3.webp",
+      "/assets/compressed/cardio4.webp",
     ],
   },
   {
@@ -25,11 +25,11 @@ const sections = [
       "Target every muscle group with expert-designed strength programs.",
       "Lift, grow, repeat – become the strongest version of yourself!"
     ],
-    image: "https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180",
+    image: "/assets/compressed/st2.webp",
     images: [
-      "https://source.unsplash.com/800x600/?bodybuilding,weights",
-      "https://source.unsplash.com/800x600/?powerlifting,gym",
-      "https://source.unsplash.com/800x600/?dumbbells,exercise",
+      "/assets/compressed/st1.webp",
+      "/assets/compressed/st3.webp",
+      "/assets/compressed/st4.webp",
     ],
   },
   {
@@ -39,11 +39,11 @@ const sections = [
       "From deep stretches to guided meditation, achieve total relaxation.",
       "Breathe, stretch, and find your inner balance!"
     ],
-    image: "https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180",
+    image: "/assets/compressed/yoga1.webp",
     images: [
-      "https://source.unsplash.com/800x600/?yoga,meditation",
-      "https://source.unsplash.com/800x600/?stretching,relaxation",
-      "https://source.unsplash.com/800x600/?mindfulness,gym",
+      "/assets/compressed/yoga1.webp",
+      "/assets/compressed/yoga2.webp",
+      "/assets/compressed/yoga3.webp",
     ],
   },
 ];
@@ -57,7 +57,7 @@ const Gallery = () => {
 <div className="w-full">
   {/* Full-width Image */}
   <motion.img
-    src="https://tse4.mm.bing.net/th?id=OIP.5cBhtdgu_71EPWaTuSkSOwHaE7&pid=Api&P=0&h=180"
+    src="/assets/compressed/slider2.webp"
     alt="Gym"
     className="w-full h-[75vh] object-cover"
     initial={{ opacity: 0 }}

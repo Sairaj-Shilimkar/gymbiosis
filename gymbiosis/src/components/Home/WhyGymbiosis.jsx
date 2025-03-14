@@ -31,8 +31,8 @@ const WhyGymbiosis = () => {
         {/* Row 1 */}
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           {[
-            { img: "/assets/equipment.jpg", text: "State-of-the-art Equipment" },
-            { img: "/assets/trainer.jpg", text: "Certified Professional Trainers" },
+            { img: "/assets/compressed/equipment.jpg", text: "State-of-the-art Equipment" },
+            { img: "/assets/compressed/trainer.webp", text: "Certified Professional Trainers" },
           ].map((feature, index) => (
             <motion.div
               key={index}
@@ -57,9 +57,9 @@ const WhyGymbiosis = () => {
         {/* Row 2 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
           {[
-            { img: "/assets/plan.jpg", text: "Personalized Workout & Diet Plans" },
-            { img: "/assets/huygein.jpg", text: "Hygienic & Motivating Environment" },
-            { img: "/assets/avail.jpg", text: "24/7 Accessibility for Members" },
+            { img: "/assets/compressed/plan.webp", text: "Personalized Workout & Diet Plans" },
+            { img: "/assets/compressed/huygein.jpg", text: "Motivating Environment" },
+            { img: "/assets/compressed/avail.webp", text: "24/7 Accessibility for Members" },
           ].map((feature, index) => (
             <motion.div
               key={index}
@@ -84,7 +84,7 @@ const WhyGymbiosis = () => {
         {/* Row 3 */}
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           {[
-            { img: "/assets/group.jpg", text: "Dynamic Group Fitness Classes" },
+            { img: "/assets/compressed/group.webp", text: "Dynamic Group Fitness Classes" },
           ].map((feature, index) => (
             <motion.div
               key={index}

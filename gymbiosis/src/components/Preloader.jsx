@@ -18,7 +18,7 @@ const Preloader = ({ setLoading }) => {
     >
       {/* Logo with Bounce Effect */}
       <motion.img
-        src="/assets/Logo.jpg"
+        src="/assets/compressed/Logo.webp"
         alt="Gym Logo"
         className="w-24 h-24 md:w-32 md:h-32 rounded-full"
         initial={{ y: 50, opacity: 0 }}

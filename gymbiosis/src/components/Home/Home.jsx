@@ -8,11 +8,11 @@ import FreeTrialForm from "./TrialForm";
 import GymStats from "./GymStats";
 
 const images = [
-  "https://tse2.mm.bing.net/th?id=OIP.H-A4Wmqn7dJ3IRgG4PeRHgHaE7&pid=Api&P=0&h=180",
-  "/assets/slider2.jpg",
-  "/assets/slider3.jpg",
-  "/assets/slider4.jpg",
-  "/assets/slider5.jpg",
+  "/assets/compressed/slider3.webp",
+  "/assets/compressed/slider1.webp",
+  "/assets/compressed/slider4.webp",
+  "/assets/compressed/slider5.webp",
+  "/assets/compressed/slider2.webp",
 ];
 
 const Home = () => {
@@ -98,12 +98,12 @@ const Home = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-2xl text-gray-300 mt-2"
+            className="text-lg md:text-xl text-gray-300 mt-2 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={animate ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2 }}
           >
-            We start where your imagination ends...🚀
+          We start where,<br /> your imagination ends !🚀
           </motion.p>
         </div>
 
