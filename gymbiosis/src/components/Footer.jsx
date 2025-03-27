@@ -52,10 +52,10 @@ const Footer = () => {
         </a> 
         |  
         <a 
-          href="mailto:sairajshilimkar@gmail.com" 
+          href="https://www.linkedin.com/in/sairaj-shilimkar" 
           className="text-yellow-300 hover:text-yellow-500 font-semibold mx-1"
         >
-          sairajshilimkar4@gmail.com
+          Sejal Vairagade
         </a>
       </p>
     </footer>
